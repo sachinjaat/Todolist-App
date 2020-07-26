@@ -13,7 +13,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-sachin:tests123@cluster0-a2qab.mongodb.net/todolistDB", {useNewUrlParser: true});
+mongoose.connect(process.env.URL, {useNewUrlParser: true});
 
 const itemsSchema = {
   name: String
@@ -135,9 +135,9 @@ app.get("/about", function(req, res){
 });
 
 let port = process.env.PORT;
-// if(port == null || port == "") {
-//   port = 3000;
-// }
+if(port == null || port == "") {
+  port = 3000;
+}
 
 app.listen(port, function() {
   console.log("Server has started successfully");
