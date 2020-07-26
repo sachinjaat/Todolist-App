@@ -140,5 +140,5 @@ let port = process.env.PORT;
 // }
 
 app.listen(port, function() {
-  console.log("Server started has stsrted successfully");
+  console.log("Server has started successfully");
 });
